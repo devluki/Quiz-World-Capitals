@@ -22,6 +22,7 @@ const handleQuizData = (data, capitalsQuantity) => {
     randomIndexGenerator(0, allCountriesData.length);
     selectRandomCountries(index, allCountriesData);
   }
+  return quizData;
 };
 
 const clearData = (arr) => {
@@ -35,7 +36,7 @@ const getData = () => {
       .then((data) => {
         data.map((country) => countriesData.push(country));
         handleQuizData(countriesData, capitalsQuantity);
-        console.log(quizData);
+        // console.log(quizData);
       })
       .catch((err) => console.log(err));
   } else {
