@@ -22,7 +22,6 @@ const handleQuizData = (data, capitalsQuantity) => {
     randomIndexGenerator(0, allCountriesData.length);
     selectRandomCountries(index, allCountriesData);
   }
-  return quizData;
 };
 
 const clearData = (arr) => {
