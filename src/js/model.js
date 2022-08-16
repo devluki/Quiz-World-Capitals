@@ -1,7 +1,7 @@
 import { API_URL, capitalsQuantity } from "./config.js";
 
 const countriesData = [];
-const quizData = [];
+export const quizData = [];
 let index;
 
 const selectRandomCountries = (index, data) => {
@@ -28,9 +28,9 @@ const clearData = (arr) => {
   arr.splice(0, capitalsQuantity);
 };
 
-const getData = () => {
+export const getData = async function () {
   if (countriesData.length === 0) {
-    fetch(API_URL)
+    await fetch(API_URL)
       .then((res) => res.json())
       .then((data) => {
         data.map((country) => countriesData.push(country));
@@ -41,8 +41,8 @@ const getData = () => {
   } else {
     clearData(quizData);
     handleQuizData(countriesData, capitalsQuantity);
-    console.log(quizData);
+    // console.log(quizData);
   }
 };
 
-export default getData;
+// export default getData;
