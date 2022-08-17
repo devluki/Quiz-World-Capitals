@@ -1,6 +1,6 @@
 import { API_URL, capitalsQuantity } from "./config.js";
 
-const countriesData = [];
+export const countriesData = [];
 export const quizData = [];
 let index;
 
@@ -19,7 +19,12 @@ const randomIndexGenerator = (min = 0, max) => {
 const handleQuizData = (data, capitalsQuantity) => {
   const allCountriesData = [...data];
   for (let i = 0; i < capitalsQuantity; i++) {
-    randomIndexGenerator(0, allCountriesData.length);
+    randomIndexGenerator(0, allCountriesData.length - 1);
+    console.log(
+      "allCountries length:",
+      allCountriesData.length,
+      allCountriesData
+    );
     selectRandomCountries(index, allCountriesData);
   }
 };
@@ -44,5 +49,3 @@ export const getData = async function () {
     // console.log(quizData);
   }
 };
-
-// export default getData;

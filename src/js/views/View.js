@@ -8,7 +8,7 @@ class View {
 
   renderSpinner() {
     const markup =
-      '<div class="spinner"><i class="fa-solid fa-spinner"></i></div>';
+      '<div class="spinner"><i class="fa-solid fa-spinner fa-spin"></i></div>';
 
     this.clearMarkup();
     this._parentElement.insertAdjacentHTML("afterbegin", markup);
