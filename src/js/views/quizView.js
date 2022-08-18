@@ -1,4 +1,5 @@
 import View from "./View";
+import { correctAnswearIndex } from "../model";
 
 class quizView extends View {
   _data;
@@ -21,7 +22,7 @@ class quizView extends View {
       this._parentElement.insertAdjacentHTML("afterbegin", markup);
     });
     // 2 Render quiz question
-    const questionMarkup = `<h4>What is the Capital City of <strong>${_data[0].name.common}</strong></h4>`;
+    const questionMarkup = `<h4>What is the Capital City of <strong>${_data[correctAnswearIndex].name.common}</strong></h4>`;
     this._parentElement.insertAdjacentHTML("afterbegin", questionMarkup);
 
     // 3 Render buttons

@@ -3,23 +3,30 @@ import { API_URL, capitalsQuantity } from "./config.js";
 export const countriesData = [];
 export const quizData = [];
 let index;
+export let correctAnswearIndex;
 
 const selectRandomCountries = (index, data) => {
   quizData.push(data[index]);
   data.splice(index, 1);
 };
 
-const randomIndexGenerator = (min = 0, max) => {
-  min = Math.ceil(min);
+const randomIndexGenerator = (max, flag) => {
+  const min = 0;
   max = Math.floor(max);
-  index = Math.floor(Math.random() * (max - min + 1)) + min;
-  console.log(index);
+  if (flag === true) {
+    index = Math.floor(Math.random() * (max - min + 1)) + min;
+  } else {
+    correctAnswearIndex = Math.floor(Math.random() * (max - min + 1)) + min;
+    console.log("answear index:", correctAnswearIndex);
+  }
+
+  // console.log(index);
 };
 
 const handleQuizData = (data, capitalsQuantity) => {
   const allCountriesData = [...data];
   for (let i = 0; i < capitalsQuantity; i++) {
-    randomIndexGenerator(0, allCountriesData.length - 1);
+    randomIndexGenerator(allCountriesData.length - 1, true);
     console.log(
       "allCountries length:",
       allCountriesData.length,
@@ -27,6 +34,7 @@ const handleQuizData = (data, capitalsQuantity) => {
     );
     selectRandomCountries(index, allCountriesData);
   }
+  randomIndexGenerator(capitalsQuantity - 1, false);
 };
 
 const clearData = (arr) => {
