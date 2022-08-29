@@ -6,13 +6,17 @@ class quizView extends View {
   _choices;
   _parentElement = document.querySelector(".app__main");
 
+  addAtributeHandler(handler) {
+    handler();
+  }
+
   gnerateChoiceOptions(data) {
     let markup = "";
     data.map((el, i) => {
       markup += ` <div>
-    <input type="radio" id="capitalCity" name="capitalCity--${i}" value=${
-        el.capital ? el.capital : "Don't have Capital City"
-      }>
+    <input type="radio" id="capitalCity" name="capitalCity" value=${
+      el.capital ? el.capital : "Don't have Capital City"
+    }>
     <label for="capitalCity--${i}">${
         el.capital ? el.capital[0] : "Don't have Capital City"
       }</label>
@@ -25,7 +29,7 @@ class quizView extends View {
   renderQuizView(data, index) {
     console.log("data:", data, "Index:", index, data[index].capital);
     this.gnerateChoiceOptions(data);
-    return `<h3>What is Capital City of ${data[index].capital}</h3><form>${this._choices}<button>Back</button><button>Submit</button></form>`;
+    return `<h3>What is Capital City of ${data[index].capital}</h3><form>${this._choices}<button>Back</button><button class="unactive getData">Submit</button></form>`;
   }
 
   _generateMarkup(data, index) {
