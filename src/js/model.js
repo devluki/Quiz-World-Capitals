@@ -3,7 +3,7 @@ import { API_URL, capitalsQuantity } from "./config.js";
 export const countriesData = [];
 export const quizData = [];
 let index;
-export let correctAnswearIndex;
+export let correctAnswerIndex;
 
 const selectRandomCountries = (index, data) => {
   quizData.push(data[index]);
@@ -16,8 +16,8 @@ const randomIndexGenerator = (max, flag) => {
   if (flag === true) {
     index = Math.floor(Math.random() * (max - min + 1)) + min;
   } else {
-    correctAnswearIndex = Math.floor(Math.random() * (max - min + 1)) + min;
-    console.log("answear index:", correctAnswearIndex);
+    correctAnswerIndex = Math.floor(Math.random() * (max - min + 1)) + min;
+    console.log("answer index:", correctAnswerIndex);
   }
 
   // console.log(index);

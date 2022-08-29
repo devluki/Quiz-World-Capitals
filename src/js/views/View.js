@@ -4,7 +4,11 @@ class View {
     console.log("clearMarkup");
   }
 
-  renderMessage() {}
+  render(markup) {
+    // const markup = this._generateMakrup();
+    this.clearMarkup();
+    this._parentElement.insertAdjacentHTML("afterbegin", markup);
+  }
 
   renderSpinner() {
     const markup =
