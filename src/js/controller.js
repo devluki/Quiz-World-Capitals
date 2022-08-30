@@ -12,7 +12,7 @@ const inputCheckedHandler = () => {
 };
 
 const activeSubmitBtnHandler = () => {
-  const btn = document.querySelector(".getData");
+  const btn = document.querySelector(".submit");
   btn.classList.remove("unactive");
 };
 
@@ -25,7 +25,6 @@ const addHandlerInputs = () => {
       inputCheckedHandler(inputs);
       e.target.setAttribute("selected", true);
       e.target.checked = true;
-      console.log("input");
       activeSubmitBtnHandler();
     })
   );
