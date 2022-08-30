@@ -10,6 +10,16 @@ class quizView extends View {
     handler();
   }
 
+  submitBtnHandler(handler) {
+    this._parentElement.addEventListener("click", function (e) {
+      const submitBtn = e.target.closest(".submit");
+      if (!submitBtn) return;
+
+      console.log("submit");
+      handler();
+    });
+  }
+
   gnerateChoiceOptions(data) {
     let markup = "";
     data.map((el, i) => {
@@ -29,7 +39,8 @@ class quizView extends View {
   renderQuizView(data, index) {
     console.log("data:", data, "Index:", index, data[index].capital);
     this.gnerateChoiceOptions(data);
-    return `<h3>What is Capital City of ${data[index].capital}</h3><form>${this._choices}<button>Back</button><button class="unactive submit">Submit</button></form>`;
+    return `<h3>What is Capital City of ${data[index].name.common}</h3><div>${this._choices}<button>Back</button><button class="unactive submit">Submit</button></div>`;
+    // return `<h3>What is Capital City of ${data[index].capital}</h3><form>${this._choices}</form><button>Back</button><button class="unactive submit">Submit</button>`;
   }
 
   _generateMarkup(data, index) {

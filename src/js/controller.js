@@ -30,6 +30,22 @@ const addHandlerInputs = () => {
   );
 };
 
+const checkAnswer = () => {
+  const submitedAnswer = document.querySelector('[selected="true"]');
+  const correctAnswer = model.quizData[model.correctAnswerIndex].capital;
+  console.log(
+    submitedAnswer.value,
+    correctAnswer,
+    submitedAnswer.value === correctAnswer
+  );
+  if (submitedAnswer.value === correctAnswer[0]) {
+    console.log("correct");
+  } else {
+    console.log("not correct");
+  }
+  // console.log(submitedAnswer);
+};
+
 const renderView = async function () {
   try {
     quizView.renderSpinner();
@@ -41,6 +57,7 @@ const renderView = async function () {
     quizView._generateMarkup(model.quizData, model.correctAnswerIndex);
     quizView.addAtributeHandler(inputCheckedHandler);
     quizView.addAtributeHandler(addHandlerInputs);
+    quizView.submitBtnHandler(checkAnswer);
   } catch (error) {
     console.log(error);
   }
