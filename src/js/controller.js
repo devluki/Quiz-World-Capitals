@@ -33,17 +33,31 @@ const addHandlerInputs = () => {
 const checkAnswer = () => {
   const submitedAnswer = document.querySelector('[selected="true"]');
   const correctAnswer = model.quizData[model.correctAnswerIndex].capital;
+  let goodAnswers;
+  let badAnswers;
+  if (!submitedAnswer) return;
+  const data = [
+    submitedAnswer.value,
+    model.quizData[model.correctAnswerIndex].name.common,
+  ];
+
   console.log(
     submitedAnswer.value,
     correctAnswer,
     submitedAnswer.value === correctAnswer
   );
+  console.log(submitedAnswer.vale, submitedAnswer);
   if (submitedAnswer.value === correctAnswer[0]) {
     console.log("correct");
+    goodAnswers++;
+    quizView._renderMessage(true, data);
   } else {
     console.log("not correct");
+    badAnswers++;
+    quizView._renderMessage(false, data);
   }
-  // console.log(submitedAnswer);
+
+  // data.length = 0;
 };
 
 const renderView = async function () {
@@ -54,7 +68,7 @@ const renderView = async function () {
 
     //
     // quizView.renderQuiz(model.quizData);
-    quizView._generateMarkup(model.quizData, model.correctAnswerIndex);
+    quizView._renderQuizView(model.quizData, model.correctAnswerIndex);
     quizView.addAtributeHandler(inputCheckedHandler);
     quizView.addAtributeHandler(addHandlerInputs);
     quizView.submitBtnHandler(checkAnswer);
@@ -67,4 +81,10 @@ app.addEventListener("click", function (e) {
   if (!e.target.closest(".getData")) return;
   renderView();
   console.log(model.quizData, model.countriesData.length);
+});
+app.addEventListener("click", function (e) {
+  if (!e.target.closest(".back")) return;
+  // renderView();
+  quizView._renderIndex();
+  console.log("back");
 });
