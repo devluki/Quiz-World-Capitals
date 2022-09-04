@@ -1,35 +1,11 @@
-// import View from "./View";
+import View from "./View";
 import { correctAnswerIndex } from "../model";
 
-class quizView {
+class quizView extends View {
   data;
   _choices;
   _parentElement = document.querySelector(".app__main");
-
-  // General functions
-  clearMarkup() {
-    this._parentElement.innerHTML = "";
-    console.log("clearMarkup");
-  }
-  render(markup) {
-    // const markup = this._generateMakrup();
-    this.clearMarkup();
-    this._parentElement.insertAdjacentHTML("afterbegin", markup);
-  }
-  renderSpinner() {
-    const markup =
-      '<div class="spinner"><i class="fa-solid fa-spinner fa-spin"></i></div>';
-
-    this.clearMarkup();
-    this._parentElement.insertAdjacentHTML("afterbegin", markup);
-    console.log("renderspinner");
-  }
-
-  //
-
-  addAtributeHandler(handler) {
-    handler();
-  }
+  _stats = document.querySelector(".app__stats");
 
   submitBtnHandler(handler) {
     this._parentElement.addEventListener("click", function (e) {
@@ -70,22 +46,23 @@ class quizView {
   _renderMessage(flag, data) {
     let markup;
     if (flag) {
-      markup = `<p>That's correct! ${data[0]} is a Capital City of ${data[1]}</p><button class="back">Back</button><button class="getData">Next question</button>`;
+      markup = `<p>That's correct! ${data[0]} is a Capital City of ${data[1]}</p>
+      <button class="back">Back</button><button class="getData">Next question</button>`;
     } else {
-      markup = `<p>Sorry this isn't correct answer...${data[0]} is not a Capital City of ${data[1]}</p><button class="back">Back</button><button class="getData">Next question</button>`;
+      markup = `<p>Sorry this isn't correct answer...${data[0]} is not a Capital City of ${data[1]}</p>
+      <button class="back">Back</button><button class="getData">Next question</button>`;
     }
     this.render(markup);
   }
-  // Render Index page
-  _renderIndex() {
-    const markup = ` <div class="app__main">
-    <p>
-      <strong>Take the quiz and test your knowledge!</strong> How many of
-      world capitals can you guess correctly? Good luck! :)
-    </p>
-    <button class="getData">Get data</button>
-  </div>`;
-    this.render(markup);
+
+  _clearStats() {
+    this._stats.innerHTML = "";
+  }
+
+  _updateStats(goodAnswers = 0, badAnswers = 0) {
+    this._clearStats();
+    const markup = `<span>Good count: ${goodAnswers}</span> <span>Bad count: ${badAnswers}</span>`;
+    this._stats.insertAdjacentHTML("afterbegin", markup);
   }
 }
 

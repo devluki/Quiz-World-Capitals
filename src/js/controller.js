@@ -1,7 +1,10 @@
 import * as model from "./model.js";
 import quizView from "./views/quizView.js";
+import statsView from "./views/statsView.js";
 
 const app = document.querySelector(".app");
+let goodAnswers = 0;
+let badAnswers = 0;
 
 const inputCheckedHandler = () => {
   const inputs = document.querySelectorAll("#capitalCity");
@@ -18,8 +21,6 @@ const activeSubmitBtnHandler = () => {
 
 const addHandlerInputs = () => {
   const inputs = document.querySelectorAll("#capitalCity");
-  // console.log(inputs);
-
   inputs.forEach((input) =>
     input.addEventListener("change", function (e) {
       inputCheckedHandler(inputs);
@@ -33,8 +34,7 @@ const addHandlerInputs = () => {
 const checkAnswer = () => {
   const submitedAnswer = document.querySelector('[selected="true"]');
   const correctAnswer = model.quizData[model.correctAnswerIndex].capital;
-  let goodAnswers;
-  let badAnswers;
+
   if (!submitedAnswer) return;
   const data = [
     submitedAnswer.value,
@@ -56,7 +56,7 @@ const checkAnswer = () => {
     badAnswers++;
     quizView._renderMessage(false, data);
   }
-
+  quizView._updateStats(goodAnswers, badAnswers);
   // data.length = 0;
 };
 
@@ -85,6 +85,9 @@ app.addEventListener("click", function (e) {
 app.addEventListener("click", function (e) {
   if (!e.target.closest(".back")) return;
   // renderView();
+  goodAnswers = 0;
+  badAnswers = 0;
+  statsView.clearMarkup();
   quizView._renderIndex();
   console.log("back");
 });
