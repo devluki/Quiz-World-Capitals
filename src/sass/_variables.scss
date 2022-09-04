@@ -1,2 +1,18 @@
 $font-stack: "Poppins", sans-serif;
 $primary-color: #1f2952;
+
+$breakpoints: (
+  xxsmall: "min-width: 375px",
+
+  xsmall: "min-width: 460px",
+
+  small: "min-width: 640px",
+
+  medium: "min-width: 800px",
+
+  large: "min-width: 1024px",
+
+  xlarge: "min-width: 1200px",
+
+  xxlarge: "min-width: 1440px",
+);

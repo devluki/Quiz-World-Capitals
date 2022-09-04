@@ -16,3 +16,14 @@
   -moz-justify-content: $value;
   justify-content: $value;
 }
+
+@mixin mq($breakpoint) {
+  $size: map-get($breakpoints, $breakpoint);
+  @if ($size) {
+    @media screen and (#{$size}) {
+      @content;
+    }
+  } @else {
+    @error '"#{$breakpoint}" - invalid value'+ "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}

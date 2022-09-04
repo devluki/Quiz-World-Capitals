@@ -1,23 +1,26 @@
-@import "mixins.scss", "variables.scss";
-
-* {
-  margin: 0;
-  padding: 0;
-  font-family: $font-stack;
-  color: $primary-color;
-  i {
-    font-family: "Font Awesome 5 Free";
-  }
-}
+@import "variables.scss", "mixins.scss", "reset.scss";
 
 .wrapper {
   @include flex-center-XY(center);
   height: 100vh;
   width: 100%;
+  @include mq(xxsmall) {
+    background-image: url("../img/earth-11595_640.jpg");
+  }
+  background-size: cover;
 }
 
 .app {
   @include flex-center-XY(center);
+  width: 90%;
+  height: 90%;
+
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .app__main {
