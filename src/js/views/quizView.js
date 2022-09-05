@@ -20,11 +20,13 @@ class quizView extends View {
     let markup = "";
     data.map((el, i) => {
       markup += ` <div>
-    <input type="radio" id="capitalCity" name="capitalCity" value='${
-      el.capital ? el.capital[0] : "Do not have Capital City"
-    }'>
-    <label for="capitalCity--${i}">${
+    <input class="input-capital-city"type="radio" id="capitalCity--${i}" name="capitalCity" value='${
         el.capital ? el.capital[0] : "Do not have Capital City"
+      }'>
+    <label class="label-capital-city" for="capitalCity--${i}">${
+        el.capital
+          ? el.capital[0]
+          : "Do not have Capital City <i class='fa-solid fa-volcano'></i>"
       }</label>
     </div>`;
     });
@@ -35,7 +37,7 @@ class quizView extends View {
   generateQuizView(data, index) {
     console.log("data:", data, "Index:", index, data[index].capital);
     this.gnerateChoiceOptions(data);
-    return `<h3>What is Capital City of ${data[index].name.common}</h3><div>${this._choices}<button class="back">Back</button><button class="unactive submit">Submit</button></div>`;
+    return `<h3 class="quiz__question">What is Capital City of ${data[index].name.common}?</h3><div>${this._choices}</div><div class="buttons__container"><button class="back btn">Back</button><button class="unactive submit btn">Submit</button></div>`;
   }
 
   _renderQuizView(data, index) {
@@ -46,11 +48,11 @@ class quizView extends View {
   _renderMessage(flag, data) {
     let markup;
     if (flag) {
-      markup = `<p>That's correct! ${data[0]} is a Capital City of ${data[1]}</p>
-      <button class="back">Back</button><button class="getData">Next question</button>`;
+      markup = `<p class="quiz__answer"><span class="bold bold--correct">That's correct!</span> ${data[0]} is a Capital City of ${data[1]}.</p>
+     <div class="buttons__container"><button class="getData btn">Next question</button> <button class="back btn">Back</button></div>`;
     } else {
-      markup = `<p>Sorry this isn't correct answer...${data[0]} is not a Capital City of ${data[1]}</p>
-      <button class="back">Back</button><button class="getData">Next question</button>`;
+      markup = `<p class="quiz__answer"><span class="bold bold--incorrect glow">Sorry this isn't correct answer...</span>  ${data[0]} is not a Capital City of ${data[1]}.</p>
+      <div class="buttons__container"><button class="getData btn">Next question</button><button class="back btn">Back</button></div>`;
     }
     this.render(markup);
   }
@@ -61,7 +63,7 @@ class quizView extends View {
 
   _updateStats(goodAnswers = 0, badAnswers = 0) {
     this._clearStats();
-    const markup = `<span>Good count: ${goodAnswers}</span> <span>Bad count: ${badAnswers}</span>`;
+    const markup = `<span class="good__count bold">Good count: ${goodAnswers}</span> <span class="bad__count bold">Bad count: ${badAnswers}</span>`;
     this._stats.insertAdjacentHTML("afterbegin", markup);
   }
 }

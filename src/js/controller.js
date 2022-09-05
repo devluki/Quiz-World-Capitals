@@ -20,7 +20,7 @@ const activeSubmitBtnHandler = () => {
 };
 
 const addHandlerInputs = () => {
-  const inputs = document.querySelectorAll("#capitalCity");
+  const inputs = document.querySelectorAll(".input-capital-city");
   inputs.forEach((input) =>
     input.addEventListener("change", function (e) {
       inputCheckedHandler(inputs);
@@ -47,7 +47,14 @@ const checkAnswer = () => {
     submitedAnswer.value === correctAnswer
   );
   console.log(submitedAnswer.vale, submitedAnswer);
-  if (submitedAnswer.value === correctAnswer[0]) {
+  if (
+    submitedAnswer.value === "Do not have Capital City" &&
+    correctAnswer[0] === undefined
+  ) {
+    console.log("correct");
+    goodAnswers++;
+    quizView._renderMessage(true, data);
+  } else if (submitedAnswer.value === correctAnswer[0]) {
     console.log("correct");
     goodAnswers++;
     quizView._renderMessage(true, data);
@@ -91,3 +98,5 @@ app.addEventListener("click", function (e) {
   quizView._renderIndex();
   console.log("back");
 });
+
+// quizView._renderCanvas();

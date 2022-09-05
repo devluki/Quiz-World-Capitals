@@ -1,0 +1,24 @@
+.buttons__container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  .btn {
+    background-color: transparent;
+    padding: 10px 30px;
+    border: 2px solid $primary-color;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 2px 2px 2px;
+    cursor: pointer;
+    // margin: 30px 5px 0px;
+    transition: 0.2s;
+
+    &:hover {
+      border: 2px solid lighten($primary-color, 70%);
+      color: lighten($primary-color, 70%);
+    }
+  }
+}
