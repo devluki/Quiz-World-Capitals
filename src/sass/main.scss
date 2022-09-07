@@ -45,15 +45,32 @@
   justify-content: space-around;
 }
 .app__heading {
-  @include flex-center-XY;
-  flex-grow: 1;
   font-style: italic;
+  font-weight: bold;
   text-transform: uppercase;
   text-align: center;
   font-size: 2.5em;
   text-shadow: 4px 4px 6px rgba(66, 68, 90, 0.7);
-  transform: rotate(-4deg);
+  // transform: rotate(-4deg);
   padding: 0 2%;
+  animation: lightSpeedInRight; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 1s; /* don't forget to set a duration! */
+}
+
+.word__wrapper {
+  display: inline-block;
+}
+
+.bounce {
+  display: inline-block;
+  &:hover {
+    color: lighten($primary-color, 40%);
+  }
+  &--active {
+    color: lighten($primary-color, 60%);
+    animation: rubberBand; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 0.9s; /* don't forget to set a duration! */
+  }
 }
 
 .spinner {

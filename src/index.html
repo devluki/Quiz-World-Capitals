@@ -7,12 +7,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital@0;1&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,400;1,900&display=swap"
       rel="stylesheet"
     />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
     <link rel="stylesheet" href="./sass/main.scss" />
     <script type="module" src="./js/controller.js"></script>
@@ -22,13 +26,24 @@
   <body>
     <div class="wrapper">
       <div class="app">
-        <h1 class="app__heading">World Capitals Quiz</h1>
-        <!-- <canvas id="canvas"></canvas> -->
-        <!-- <img
-          class="app__img"
-          src="./img/triangles-1289379_640.png"
-          alt="world map"
-        /> -->
+        <h1 class="app__heading animate__animated animate__lightSpeedInRight">
+          <span class="word__wrapper">
+            <span class="bounce">W</span><span class="bounce">o</span
+            ><span class="bounce">r</span><span class="bounce">l</span
+            ><span class="bounce">d</span>
+          </span>
+          <span class="word__wrapper">
+            <span class="bounce">C</span><span class="bounce">a</span
+            ><span class="bounce">p</span><span class="bounce">i</span
+            ><span class="bounce">t</span><span class="bounce">a</span
+            ><span class="bounce">l</span>
+          </span>
+          <span class="word__wrapper">
+            <span class="bounce">Q</span><span class="bounce">u</span
+            ><span class="bounce">i</span><span class="bounce">z</span>
+          </span>
+        </h1>
+
         <div class="app__stats"></div>
         <div class="app__main">
           <p>

@@ -6,6 +6,22 @@ const app = document.querySelector(".app");
 let goodAnswers = 0;
 let badAnswers = 0;
 
+const letterBounceUnActive = (letter) => {
+  setTimeout(() => {
+    letter.classList.remove("bounce--active");
+  }, 900);
+};
+
+const letterBounceActive = () => {
+  app.addEventListener("mouseover", function (e) {
+    const letter = e.target.closest(".bounce");
+    console.log("hover", letter);
+    if (!letter) return;
+    letter.classList.add("bounce--active");
+    letterBounceUnActive(letter);
+  });
+};
+
 const inputCheckedHandler = () => {
   const inputs = document.querySelectorAll("#capitalCity");
   inputs.forEach((input) => {
@@ -99,4 +115,5 @@ app.addEventListener("click", function (e) {
   console.log("back");
 });
 
+quizView.addAtributeHandler(letterBounceActive);
 // quizView._renderCanvas();
