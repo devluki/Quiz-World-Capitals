@@ -30,13 +30,19 @@ export default class View {
 
   // Render Index page
   _renderIndex() {
-    const markup = ` <div class="app__main">
-    <p>
-      <strong>Take the quiz and test your knowledge!</strong> How many of
-      world capitals can you guess correctly? Good luck! :)
-    </p>
-    <div class="buttons__container"><button class="getData btn">Start</button></div>
+    const markup = `   <div class="app__main">
+    <div class="main__content">
+      <p>
+        <strong>Take the quiz and test your knowledge!</strong> How many
+        of world capitals can you guess correctly? Good luck! :)
+      </p>
+    </div>
+
+    <div class="buttons__container">
+      <button class="getData btn slide">Start</button>
+    </div>
   </div>`;
+
     this.render(markup);
   }
 
