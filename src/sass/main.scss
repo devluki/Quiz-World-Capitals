@@ -1,12 +1,14 @@
-@import "variables.scss", "mixins.scss", "reset.scss", "buttons.scss",
-  "canvas.scss";
+@import "variables.scss", "mixins.scss", "reset.scss", "buttons.scss";
 
 .wrapper {
   @include flex-center-XY(center);
   height: 100vh;
   width: 100%;
 
-  background-image: url("../img/cool-background.png");
+  background-image: url("../img/europe-night-map-g19c456163_1920.jpg");
+  // background-image: url("../img/map-of-the-world-g16ef26537_1920.jpg");
+
+  background-position: center;
   background-size: cover;
   .app {
     position: relative;
@@ -17,14 +19,19 @@
     overflow: hidden;
     width: 90%;
     height: 85%;
-    max-width: 700px;
-    max-height: 900px;
-    background: rgba(255, 255, 255, 0.25);
+    min-width: 230px;
+    max-width: 500px;
+    min-height: 500px;
+    max-height: 700px;
+    background: rgba(255, 255, 255, 0.45);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(10px);
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.18);
+    @include mq(xxsmall) {
+      height: 95%;
+    }
   }
 }
 
@@ -37,6 +44,10 @@
   text-align: justify;
   padding: 0 5%;
   font-size: 1.2em;
+
+  @include mq(xxsmall) {
+    font-size: 1.35em;
+  }
 }
 
 .app__stats,
@@ -53,6 +64,10 @@
     }
   }
 }
+
+.quiz__question {
+  margin-bottom: 5%;
+}
 .heading__container {
   @include flex-center-XY(center);
   flex-grow: 2;
@@ -65,16 +80,21 @@
   text-align: center;
   font-size: 2.5em;
   text-shadow: 4px 4px 6px rgba(66, 68, 90, 0.7);
-  // transform: rotate(-4deg);
+
   padding: 0 2%;
-  animation: lightSpeedInRight; /* referring directly to the animation's @keyframe declaration */
-  animation-duration: 1s; /* don't forget to set a duration! */
+  animation: lightSpeedInRight;
+  animation-duration: 1s;
+  @include mq(xxsmall) {
+    font-size: 2.5em;
+  }
 }
 
 .main__content {
   display: inline-block;
-  animation: fadeIn; /* referring directly to the animation's @keyframe declaration */
-  animation-duration: 1.2s; /* don't forget to set a duration! */
+
+  font-weight: bold;
+  animation: fadeIn;
+  animation-duration: 1.2s;
 }
 
 .word__wrapper {
@@ -112,6 +132,9 @@
 .bold {
   font-weight: bold;
 }
+.italic {
+  font-style: italic;
+}
 .input-capital-city {
   cursor: pointer;
   &:checked {
@@ -137,6 +160,10 @@
   }
 }
 
+.app__stats {
+  font-style: italic;
+}
+
 @keyframes glow-incorrect {
   from {
     text-shadow: 0px 0px 1px rgba(66, 68, 90, 0.4);
@@ -156,17 +183,16 @@
 }
 
 .bold--incorrect {
-  // color: #f40;
-  color: lighten(#f72119, 11%);
-  text-shadow: 4px 4px 6px rgba(66, 68, 90, 0.4);
+  font-style: italic;
+  color: lighten(#f72119, 8%);
+  text-shadow: 4px 4px 6px rgba(66, 68, 90, 0.3);
   -webkit-animation: glow-incorrect 1s ease-in-out infinite alternate;
   -moz-animation: glow-incorrect 1s ease-in-out infinite alternate;
   animation: glow-incorrect 0.9s ease-in-out infinite alternate;
 }
 
 .bold--correct {
-  // color: #00971e;
-  // color: #0fff50;
+  font-style: italic;
   color: lighten(#0fff50, 25%);
   text-shadow: 4px 4px 6px rgba(66, 68, 90, 0.4);
   -webkit-animation: glow-correct 1s ease-in-out infinite alternate;

@@ -14,10 +14,14 @@
     box-shadow: 2px 2px 2px;
     cursor: pointer;
     transition: 0.2s;
+    font-size: 0.75em;
+    @include mq(xxsmall) {
+      font-size: 0.9em;
+    }
 
     &:hover {
-      border: 2px solid lighten($primary-color, 70%);
-      color: lighten($primary-color, 70%);
+      border: 2px solid lighten($primary-color, 60%);
+      color: lighten($primary-color, 20%);
     }
   }
 
