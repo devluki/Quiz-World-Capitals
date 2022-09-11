@@ -15,7 +15,7 @@ const letterBounceUnActive = (letter) => {
 const letterBounceActive = () => {
   app.addEventListener("mouseover", function (e) {
     const letter = e.target.closest(".bounce");
-    console.log("hover", letter);
+    // console.log("hover", letter);
     if (!letter) return;
     letter.classList.add("bounce--active");
     letterBounceUnActive(letter);
@@ -52,25 +52,20 @@ const checkAnswer = () => {
   const correctAnswer = model.quizData[model.correctAnswerIndex].capital;
 
   if (!submitedAnswer) return;
+  const submitedAnswerIndex = submitedAnswer.getAttribute("id").slice(13) * 1;
   const data = [
     submitedAnswer.value,
     model.quizData[model.correctAnswerIndex].name.common,
   ];
 
   console.log(
-    submitedAnswer.value,
-    correctAnswer,
-    submitedAnswer.value === correctAnswer
+    "Model Index:",
+    model.correctAnswerIndex,
+    "Submited Index:",
+    submitedAnswerIndex
   );
-  console.log(submitedAnswer.vale, submitedAnswer);
-  if (
-    submitedAnswer.value === "Do not have Capital City" &&
-    correctAnswer[0] === undefined
-  ) {
-    console.log("correct");
-    goodAnswers++;
-    quizView._renderMessage(true, data);
-  } else if (submitedAnswer.value === correctAnswer[0]) {
+
+  if (submitedAnswerIndex === model.correctAnswerIndex) {
     console.log("correct");
     goodAnswers++;
     quizView._renderMessage(true, data);
@@ -80,7 +75,6 @@ const checkAnswer = () => {
     quizView._renderMessage(false, data);
   }
   quizView._updateStats(goodAnswers, badAnswers);
-  // data.length = 0;
 };
 
 const renderView = async function () {
