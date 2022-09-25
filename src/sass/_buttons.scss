@@ -20,13 +20,15 @@
     }
 
     &:hover {
-      border: 2px solid lighten($primary-color, 60%);
-      color: lighten($primary-color, 20%);
+      // border: 2px solid lighten($primary-color, 60%);
+      // color: lighten($primary-color, 20%);
+      border: 2px solid lighten($primary-color, 70%);
+      color: lighten($primary-color, 70%);
     }
   }
 
   .slide {
-    animation: lightSpeedInLeft; /* referring directly to the animation's @keyframe declaration */
-    animation-duration: 1s; /* don't forget to set a duration! */
+    animation: lightSpeedInLeft;
+    animation-duration: 1s;
   }
 }

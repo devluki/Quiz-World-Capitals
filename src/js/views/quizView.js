@@ -47,12 +47,33 @@ class quizView extends View {
 
   _renderMessage(flag, data) {
     let markup;
+    console.log(
+      "data:",
+      data,
+      "Flag:",
+      flag,
+      "Is true?",
+      data[0] === "Do not have Capital City"
+    );
+
     if (flag) {
-      markup = `<div class="main__content"><p class="quiz__answer"><span class="bold bold--correct">That's correct!</span> ${data[0]} is a Capital City of ${data[1]}.</p></div>
-     <div class="buttons__container"> <button class="back btn">Back</button><button class="getData btn">Next</button></div>`;
+      if (data[0] === "Do not have Capital City") {
+        markup = `<div class="main__content"><p class="quiz__answer"><span class="bold bold--correct">That's correct!</span> ${data[1]} do not have Capital City!</p></div>
+
+        <div class="buttons__container"> <button class="back btn">Back</button><button class="getData btn">Next</button></div>`;
+      } else {
+        markup = `<div class="main__content"><p class="quiz__answer"><span class="bold bold--correct">That's correct!</span> ${data[0]} is a Capital City of ${data[1]}.</p></div>
+        <div class="buttons__container"> <button class="back btn">Back</button><button class="getData btn">Next</button></div>`;
+      }
     } else {
-      markup = `<div class="main__content"><p class="quiz__answer"><span class="bold bold--incorrect glow">Sorry this isn't correct answer...</span>  ${data[0]} is not a Capital City of ${data[1]}.</p></div>
+      if (data[0] === "Do not have Capital City") {
+        markup = `<div class="main__content"><p class="quiz__answer"><span class="bold bold--incorrect">Sorry this isn't correct answer...</span> ${data[1]} definitely have a Capital City...</p></div>
+ 
+         <div class="buttons__container"> <button class="back btn">Back</button><button class="getData btn">Next</button></div>`;
+      } else {
+        markup = `<div class="main__content"><p class="quiz__answer"><span class="bold bold--incorrect glow">Sorry this isn't correct answer...</span>  ${data[0]} is not a Capital City of ${data[1]}.</p></div>
       <div class="buttons__container"><button class="back btn">Back</button><button class="getData btn">Next</button></div>`;
+      }
     }
     this.render(markup);
   }
