@@ -11,7 +11,6 @@ export default class View {
   // General functions
   clearMarkup() {
     this._parentElement.innerHTML = "";
-    console.log("clearMarkup");
   }
 
   render(markup) {
@@ -25,7 +24,6 @@ export default class View {
 
     this.clearMarkup();
     this._parentElement.insertAdjacentHTML("afterbegin", markup);
-    console.log("renderspinner");
   }
 
   // Render Index page

@@ -15,7 +15,6 @@ const letterBounceUnActive = (letter) => {
 const letterBounceActive = () => {
   app.addEventListener("mouseover", function (e) {
     const letter = e.target.closest(".bounce");
-    // console.log("hover", letter);
     if (!letter) return;
     letter.classList.add("bounce--active");
     letterBounceUnActive(letter);
@@ -58,19 +57,10 @@ const checkAnswer = () => {
     model.quizData[model.correctAnswerIndex].name.common,
   ];
 
-  console.log(
-    "Model Index:",
-    model.correctAnswerIndex,
-    "Submited Index:",
-    submitedAnswerIndex
-  );
-
   if (submitedAnswerIndex === model.correctAnswerIndex) {
-    console.log("correct");
     goodAnswers++;
     quizView._renderMessage(true, data);
   } else {
-    console.log("not correct");
     badAnswers++;
     quizView._renderMessage(false, data);
   }
@@ -97,17 +87,13 @@ const renderView = async function () {
 app.addEventListener("click", function (e) {
   if (!e.target.closest(".getData")) return;
   renderView();
-  console.log(model.quizData, model.countriesData.length);
 });
 app.addEventListener("click", function (e) {
   if (!e.target.closest(".back")) return;
-  // renderView();
   goodAnswers = 0;
   badAnswers = 0;
   statsView.clearMarkup();
   quizView._renderIndex();
-  console.log("back");
 });
 
 quizView.addAtributeHandler(letterBounceActive);
-// quizView._renderCanvas();

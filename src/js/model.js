@@ -17,7 +17,6 @@ const randomIndexGenerator = (max, flag) => {
     index = Math.floor(Math.random() * (max - min + 1)) + min;
   } else {
     correctAnswerIndex = Math.floor(Math.random() * (max - min + 1)) + min;
-    console.log("answer index:", correctAnswerIndex);
   }
 
   // console.log(index);
@@ -27,11 +26,7 @@ const handleQuizData = (data, capitalsQuantity) => {
   const allCountriesData = [...data];
   for (let i = 0; i < capitalsQuantity; i++) {
     randomIndexGenerator(allCountriesData.length - 1, true);
-    console.log(
-      "allCountries length:",
-      allCountriesData.length,
-      allCountriesData
-    );
+
     selectRandomCountries(index, allCountriesData);
   }
   randomIndexGenerator(capitalsQuantity - 1, false);
@@ -48,12 +43,10 @@ export const getData = async function () {
       .then((data) => {
         data.map((country) => countriesData.push(country));
         handleQuizData(countriesData, capitalsQuantity);
-        // console.log(quizData);
       })
       .catch((err) => console.log(err));
   } else {
     clearData(quizData);
     handleQuizData(countriesData, capitalsQuantity);
-    // console.log(quizData);
   }
 };

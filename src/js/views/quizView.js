@@ -31,11 +31,9 @@ class quizView extends View {
     </div>`;
     });
     this._choices = markup;
-    console.log("_choises:", this._choices);
   }
 
   generateQuizView(data, index) {
-    console.log("data:", data, "Index:", index, data[index].capital);
     this.gnerateChoiceOptions(data);
     return `<div class="main__content"><h3 class="quiz__question">What is Capital City of <span class="bold italic">${data[index].name.common}?</span></h3><div>${this._choices}</div></div><div class="buttons__container"><button class="back btn">Back</button><button class="unactive submit btn">Submit</button></div>`;
   }
@@ -47,14 +45,6 @@ class quizView extends View {
 
   _renderMessage(flag, data) {
     let markup;
-    console.log(
-      "data:",
-      data,
-      "Flag:",
-      flag,
-      "Is true?",
-      data[0] === "Do not have Capital City"
-    );
 
     if (flag) {
       if (data[0] === "Do not have Capital City") {
