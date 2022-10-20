@@ -28,7 +28,7 @@ export default class View {
 
   // Render Index page
   _renderIndex() {
-    const markup = `   <div class="app__main">
+    const markup = `   
     <div class="main__content">
       <p>
         <strong>Take the quiz and test your knowledge!</strong> How many
@@ -38,7 +38,7 @@ export default class View {
 
     <div class="buttons__container">
       <button class="getData btn slide">Start</button>
-    </div>
+    
   </div>`;
 
     this.render(markup);

@@ -2,11 +2,11 @@
   "name": "quiz",
   "version": "1.0.0",
   "description": "World Capitals Quiz",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel",
-    "build": "parcel build"
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html ",
+    "deploy": "npm run build && git add . &&  git push origin master"
   },
   "homepage": "https://devluki.github.io/Quiz-World-Capitals/",
   "author": "",
