@@ -32,7 +32,7 @@ const handleQuizData = (data, capitalsQuantity) => {
   randomIndexGenerator(capitalsQuantity - 1, false);
 };
 
-const clearData = (arr) => {
+export const clearData = (arr) => {
   arr.splice(0, capitalsQuantity);
 };
 

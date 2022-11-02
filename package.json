@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "World Capitals Quiz",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest --run --reporter verbose",
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html ",
     "deploy": "npm run build && git add . &&  git push origin master"
@@ -14,6 +14,7 @@
   "devDependencies": {
     "@parcel/transformer-sass": "^2.7.0",
     "parcel": "^2.7.0",
-    "sass": "^1.54.4"
+    "sass": "^1.54.4",
+    "vitest": "^0.24.5"
   }
 }
