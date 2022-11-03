@@ -2,7 +2,7 @@ import { API_URL, capitalsQuantity } from "./config.js";
 
 export const countriesData = [];
 export const quizData = [];
-let index;
+export let index;
 export let correctAnswerIndex;
 export let responseCode;
 
