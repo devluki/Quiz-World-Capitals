@@ -43,6 +43,16 @@ class quizView extends View {
     this.render(markup);
   }
 
+  renderError(error) {
+    const markup = `<div class="error">
+   <div class="error__img"></div>
+    <p class="error__code">${error.message}</p>
+    <p class="error__message">Something went wrong, can't fetch data. Try refresh the page.</p> </div>`;
+
+    this.clearMarkup();
+    this._parentElement.insertAdjacentHTML("afterbegin", markup);
+  }
+
   _renderMessage(flag, data) {
     let markup;
 

@@ -1,4 +1,5 @@
-@import "variables.scss", "mixins.scss", "reset.scss", "buttons.scss";
+@import "variables.scss", "mixins.scss", "reset.scss", "buttons.scss",
+  "error.scss";
 
 .wrapper {
   @include flex-center-XY(center);

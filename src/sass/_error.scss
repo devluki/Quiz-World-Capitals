@@ -1,0 +1,24 @@
+.error {
+  @include flex-center-XY(center);
+}
+
+.error__code,
+.error__message {
+  font-weight: bold;
+}
+
+.error__img {
+  width: 200px;
+  height: 200px;
+  background-image: url("../img/robot-3256109_640.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.error__code {
+  font-size: 3.5em;
+  color: lighten($primary-color, 70%);
+}
+.error__message {
+  font-size: 1.1em;
+}

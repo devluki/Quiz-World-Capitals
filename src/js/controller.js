@@ -1,6 +1,7 @@
 import * as model from "./model.js";
 import quizView from "./views/quizView.js";
 import statsView from "./views/statsView.js";
+import { responseCode } from "./model.js";
 
 const app = document.querySelector(".app");
 let goodAnswers = 0;
@@ -80,7 +81,7 @@ const renderView = async function () {
     quizView.addAtributeHandler(addHandlerInputs);
     quizView.submitBtnHandler(checkAnswer);
   } catch (error) {
-    console.log(error);
+    quizView.renderError(responseCode);
   }
 };
 
