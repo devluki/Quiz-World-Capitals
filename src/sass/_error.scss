@@ -13,6 +13,10 @@
   background-image: url("../img/robot-3256109_640.png");
   background-repeat: no-repeat;
   background-size: contain;
+  @include mq(small) {
+    width: 260px;
+    height: 260px;
+  }
 }
 
 .error__code {
@@ -21,4 +25,7 @@
 }
 .error__message {
   font-size: 1.1em;
+  @include mq(small) {
+    font-size: 1.3em;
+  }
 }

@@ -74,8 +74,6 @@ const renderView = async function () {
 
     await model.getData();
 
-    //
-    // quizView.renderQuiz(model.quizData);
     quizView._renderQuizView(model.quizData, model.correctAnswerIndex);
     quizView.addAtributeHandler(inputCheckedHandler);
     quizView.addAtributeHandler(addHandlerInputs);
