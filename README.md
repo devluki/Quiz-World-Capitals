@@ -11,7 +11,7 @@ Multiple-choice quiz game, based on coutries data form [Rest Coutries](https://r
  ![Data flow diagram](https://raw.githubusercontent.com/devluki/Quiz-World-Capitals/Images/FlowChart%20(7).jpg)
  
  # Build 
-To build the website locally first install  NPM and Parcell. Then install dependecies by running:
+To build the website locally, first install  NPM and Parcell. Then install dependecies by running:
 
 `npm i`
 
