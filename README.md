@@ -1,5 +1,5 @@
 #  World Capitals Quiz
-**Test your self, how many of the world capitals do you know? :smirk:**
+**Test yourself, how many of the world capitals do you know? :smirk:**
 
 Multiple-choice quiz game, based on coutries data form [Rest Coutries](https://restcountries.com/). Written in **MVC** design pattern
 
